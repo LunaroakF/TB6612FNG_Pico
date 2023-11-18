@@ -4,10 +4,12 @@ import time
 #for Raspberry Pi PicoW by hehu
 class TB6612FNG:
     def __init__(self, Ain1Pin, Ain2Pin, ApwmPin, Bin1Pin, Bin2Pin, BpwmPin, towards, stbyPin, defaultFREQUENCY):
+        #定义引脚特殊注释:towards为1或-1改变行驶方向，defaultFREQUENCY为默认频率
         if towards == -1:
             self.towards = -1
         else:
             self.towards = 1
+        #定义目标输出引脚输出
         self.Ain1 = machine.Pin(Ain1Pin, machine.Pin.OUT)
         self.Ain2 = machine.Pin(Ain2Pin, machine.Pin.OUT)
         self.Bin1 = machine.Pin(Bin1Pin, machine.Pin.OUT)
